@@ -1,5 +1,4 @@
 import os
-from time import sleep
 from PyQt5.QtWidgets import QMainWindow, QApplication
 import re
 from os import listdir
@@ -34,7 +33,7 @@ class Window(QMainWindow,Main_Window):
         # 自動帶入file folder 內的檔案
         for file in listdir("./file"): 
             if isfile(join("./file", file)):
-                self.FileList.setFileName(os.path.abspath(file))
+                self.FileList.setFileName(os.path.abspath(f'file/{file}'))
 
     def __initControl(self):
         self.DialogButtonBox.accepted.connect(self.StartToUpload)
@@ -66,8 +65,8 @@ class Window(QMainWindow,Main_Window):
             self.__appendTextInFtpMsgBrower('----- upload complete -----')
 
     def __onCancelAndExit(self):
+        self.ftp.close()
         self.__appendTextInFtpMsgBrower('Bye~~')
-        sleep(1)
         app = QApplication.instance()
         app.quit()
     

@@ -11,7 +11,7 @@ class Main_Window(QWidget):
 
     def __initUi(self):
         self.setWindowTitle('FTP brower')
-        self.resize(700, 400)
+        self.resize(650, 500)
 
         # 第一行按钮布局管理
         self.hLayout1 = QVBoxLayout()
@@ -19,7 +19,7 @@ class Main_Window(QWidget):
         self.hLayout2 = QVBoxLayout()
 
         # 建構 form
-        self.formGroupBox = QGroupBox("Form layout")
+        self.formGroupBox = QGroupBox("FTP input")
         self.formInLine = QFormLayout()
         # ftpHost 行
         self.ftpHostLabel = QLabel("FTP Host :")
