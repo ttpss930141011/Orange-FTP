@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from controller import Window
+from controller.mainController import Window
 
 if __name__ == '__main__':
     import sys
