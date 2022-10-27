@@ -1,0 +1,6 @@
+__pycache__
+test/*
+file/*
+UI.py
+ico/__pycache__
+ico/__init__
