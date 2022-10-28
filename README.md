@@ -44,5 +44,12 @@ PyQt QListWidget for files (Being able to drop the files based on user-defined e
 - [pyftpdlib](https://github.com/giampaolo/pyftpdlib/)
 Python FTP server library provides a high-level portable interface to easily write very efficient, scalable and asynchronous FTP servers with Python.
 
-## Result
-![alt text](static/result.png)
+## Demo
+Success login in FTP :
+![alt text](static/success_login.png)
+
+Error login :
+![alt text](static/error_login.png)
+
+Upload success :
+![alt text](static/upload_success.png)
