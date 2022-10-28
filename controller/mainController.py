@@ -6,7 +6,6 @@ from os.path import isfile, join
 from lib.ftplib import FTP,error_perm
 from pubsub import pub
 from views.UI import Main_Window
-import absresgetter
 
 class Window(QMainWindow,Main_Window):
     def __init__(self):
