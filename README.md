@@ -1,4 +1,4 @@
-# pyQt5 FTP app
+# Orange FTP
 
 Easy FTP application
 
