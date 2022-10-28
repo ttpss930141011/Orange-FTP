@@ -1,5 +1,6 @@
+from asyncio.windows_events import NULL
 import os
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtWidgets import QMainWindow, QApplication,QMessageBox
 import re
 from os import listdir
 from os.path import isfile, join
@@ -47,32 +48,38 @@ class Window(QMainWindow,Main_Window):
         username = self.ftpAccountInput.text()
         password = self.ftpPasswordInput.text()
         if vaildResult:
-            self.ftp = self.__ftpConnect(host,username,password)
-            welComeMsg = self.ftp.getwelcome()
-            self.__appendTextInFtpMsgBrower(welComeMsg)
+            try:
+                self.ftp = self.__ftpConnect(host,username,password)
+                welComeMsg = self.ftp.getwelcome()
+                self.__appendTextInFtpMsgBrower(welComeMsg)
+            except:
+                self.__appendTextInFtpMsgBrower(f'*error* \'Login error\'')
+                self.ftp = NULL
 
     def StartToUpload(self):
+        self.__initFtp()
         self.__rstripFormData()
         vaildResult = self.__validFormData()
-        
+        if not self.ftp: 
+            self.__appendTextInFtpMsgBrower(f'*error* \'FTP initial error\'')
+            return
         if vaildResult:
             path = self.ftpPathInput.text()
-            self.__ftpEnsureDir(self.ftp,path)
+            self.__ftpEnsureDir(path)
             uploadFileAbsPathList = self.FileList.getFileName()
             self.__appendTextInFtpMsgBrower('----- Start to upload -----')
             for localPath in uploadFileAbsPathList:
-                self.__uploadFile(self.ftp,localPath)
+                self.__uploadFile(localPath)
                 self.__appendTextInFtpMsgBrower(f'*uploading* \'{os.path.basename(localPath)}\'')
             self.__appendTextInFtpMsgBrower('----- upload complete -----')
 
     def __onCancelAndExit(self):
-        self.ftp.close()
+        if not self.ftp: self.ftp.close()
         self.__appendTextInFtpMsgBrower('Bye~~')
         app = QApplication.instance()
         app.quit()
     
     def __ftpConnect(self,host,username,password):
-        # print('__ftpConnect',host,username,password)
         ftp = FTP()
         ftp.set_debuglevel(2)
         ftp.connect(host,21)
@@ -80,23 +87,22 @@ class Window(QMainWindow,Main_Window):
             ftp.login(username,password)
         except error_perm:
             ftp.quit()
-            exit(1)
+            raise('Username or password wrong!')
         return ftp
     
-    def __ftpEnsureDir(self,ftp,path):
+    def __ftpEnsureDir(self,path):
         try:
-            ftp.cwd(path)
+            self.ftp.cwd(path)
         except:
             self.__appendTextInFtpMsgBrower('----- Create reomte path -----')
-            ftp.mkd(path)
-            ftp.cwd(path)
+            self.ftp.mkd(path)
+            self.ftp.cwd(path)
 
-    def __uploadFile(self,ftp,localpath):
+    def __uploadFile(self,localpath):
         bufsize = 1024
         remoteFilename = os.path.basename(localpath)
         with open(localpath, 'rb') as f:
             self.ftp.storbinary("STOR %s"%remoteFilename, f, bufsize)
-            ftp.set_debuglevel(0)
 
     # 監聽者function綁定
     def __bindFtpMessageListen(self):

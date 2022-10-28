@@ -2,6 +2,9 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QTextBrowser,  QDialogButtonBox, QFormLayout, QGroupBox, QLabel, QLineEdit, QVBoxLayout, QHBoxLayout, QWidget
 from views.components.topLeftRightFileListWidget import TopLeftRightFileListWidget
 from PyQt5 import QtCore
+from PyQt5.QtGui import QIcon
+import os
+import sys
 
 class Main_Window(QWidget):
 
@@ -10,7 +13,12 @@ class Main_Window(QWidget):
         self.__initUi()
 
     def __initUi(self):
-        self.setWindowTitle('FTP brower')
+        if getattr(sys, 'frozen', None):
+            basedir = f'{sys._MEIPASS}\\static'
+        else:
+            basedir = 'static'
+        self.setWindowTitle('Orange FTP')
+        self.setWindowIcon(QIcon(os.path.join(basedir,'favicon.ico')))
         self.resize(650, 500)
 
         # 第一行按钮布局管理
@@ -19,7 +27,7 @@ class Main_Window(QWidget):
         self.hLayout2 = QVBoxLayout()
 
         # 建構 form
-        self.formGroupBox = QGroupBox("FTP input")
+        self.formGroupBox = QGroupBox("FTP info")
         self.formInLine = QFormLayout()
         # ftpHost 行
         self.ftpHostLabel = QLabel("FTP Host :")
