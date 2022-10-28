@@ -3,6 +3,19 @@
 Easy FTP application
 
 ## Instructions
+For sigle .exe in dict:
+- Create ```config.txt``` in ```dict/```
+```sh 
+#config.txt
+FTP_IP:xx.xxx.xxx.xx
+FTP_Path:/xxx/xxx
+FTP_Account:YOUR_ACCONUT
+FTP_Password:YOUR_PASSWORD
+```
+- create ```dict/file``` folder and put your wanna upload file in
+- Excute ```OrangeFTP.exe```.
+
+For source code in start.py:
 - Create ```config.txt```
 ```sh 
 #config.txt
@@ -11,12 +24,19 @@ FTP_Path:/xxx/xxx
 FTP_Account:YOUR_ACCONUT
 FTP_Password:YOUR_PASSWORD
 ```
-- Put your wanna upload file in ```file folder``` .
-- Excute ```FTP_app.exe``` or ```python start.py```.
-- Check the file in filelist and you can add or delete file.
-- Click OK will upload all file in filelist to FTP remote path which your setting.
+- create ```file``` folder and put your wanna upload file in .
+- Excute.
+```sh 
+python start.py
+ ```
+## Build
+```sh
+pyinstaller start.spec
+```
 
 ## Included packages
+- [pyQt5](https://www.riverbankcomputing.com/software/pyqt/) 
+PyQt is a set of Python bindings for The Qt Company's Qt application framework and runs on all platforms supported by Qt including Windows, macOS, Linux, iOS and Android. 
 - [pyqt-top-left-right-file-list-widget](https://github.com/yjg30737/pyqt-top-left-right-file-list-widget)
 Simple PyQt widget which contains QListWidget and add, delete QPushButton to add and delete file in the list
 - [pyqt-file-list-widget](https://github.com/yjg30737/pyqt-file-list-widget)
