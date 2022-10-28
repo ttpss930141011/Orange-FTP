@@ -1,10 +1,10 @@
 from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtWidgets import QWidget, QFileDialog, QCheckBox
-
+from PyQt5.QtWidgets import QWidget, QFileDialog, QCheckBox,QPushButton
+from PyQt5.QtGui import QIcon
 from views.components.fileListWidget import FileListWidget
-from pyqt_svg_icon_pushbutton import SvgIconPushButton
 from simplePyQt5.topLabelBottomWidget import TopLabelBottomWidget
-
+import os
+import sys
 
 class TopLeftRightFileListWidget(QWidget):
     fileAdded = pyqtSignal(list)
@@ -16,14 +16,16 @@ class TopLeftRightFileListWidget(QWidget):
         self.__initUi()
 
     def __initUi(self):
-        self.__addBtn = SvgIconPushButton()
-        self.__delBtn = SvgIconPushButton()
-        self.__clearBtn = SvgIconPushButton()
-
-        self.__addBtn.setIcon('../../static/add.svg')
-        self.__delBtn.setIcon('../../static/delete.svg')
-        self.__clearBtn.setIcon('../../static/clear.svg')
-
+        if getattr(sys, 'frozen', None):
+            basedir = f'{sys._MEIPASS}\\static'
+        else:
+            basedir = 'static'
+        self.__addBtn = QPushButton("", self)
+        self.__delBtn = QPushButton("", self)
+        self.__clearBtn = QPushButton("", self)
+        self.__addBtn.setIcon(QIcon(os.path.join(basedir,'add.svg')))
+        self.__delBtn.setIcon(QIcon(os.path.join(basedir,'delete.svg')))
+        self.__clearBtn.setIcon(QIcon(os.path.join(basedir,'clear.svg')))
         self.__addBtn.clicked.connect(self.__add)
         self.__delBtn.clicked.connect(self.__delete)
         self.__clearBtn.clicked.connect(self.__clear)

@@ -6,6 +6,7 @@ from os.path import isfile, join
 from lib.ftplib import FTP,error_perm
 from pubsub import pub
 from views.UI import Main_Window
+import absresgetter
 
 class Window(QMainWindow,Main_Window):
     def __init__(self):
@@ -33,6 +34,7 @@ class Window(QMainWindow,Main_Window):
         # 自動帶入file folder 內的檔案
         for file in listdir("./file"): 
             if isfile(join("./file", file)):
+                # self.FileList.setFileName(absresgetter.getabsres(file))
                 self.FileList.setFileName(os.path.abspath(f'file/{file}'))
 
     def __initControl(self):
