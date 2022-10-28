@@ -1,0 +1,4 @@
+FTPIP:10.185.137.28
+FTPPath:/JustinTest
+FTPAccount:tpgmove
+FTPPassword:tpg@1234
