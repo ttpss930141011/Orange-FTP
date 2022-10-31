@@ -16,7 +16,7 @@ class Window(QMainWindow,Main_Window):
         self.__initLogMode()
         self.__initControl()
         self.__initFtp()
-        self.__bindFtpMessageListen()
+        self.__bindFtpMessageListener()
         self.__autoUpload()
         
 
@@ -127,7 +127,7 @@ class Window(QMainWindow,Main_Window):
             self.ftp.storbinary(f"STOR {remoteFilename}", f, bufsize)
 
     # 監聽者function綁定
-    def __bindFtpMessageListen(self):
+    def __bindFtpMessageListener(self):
         pub.subscribe(self.__ftpMessageListen, 'sendMsg')
     # 監聽者function    
     def __ftpMessageListen(self,msg):
