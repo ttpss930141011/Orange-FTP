@@ -2,3 +2,5 @@ FTP_IP:xx.xxx.xxx.xx
 FTP_Path:/xxx
 FTP_Account:ACCOUNT
 FTP_Password:PASSWORD
+Auto_Upload:no
+Target_Filepath:C:\Users\101557\Desktop\pyqt-ftp\file

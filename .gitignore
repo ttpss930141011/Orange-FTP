@@ -2,3 +2,4 @@ __pycache__/
 file/*
 config.txt
 build
+ftp.log
