@@ -1,6 +1,11 @@
 # Orange FTP
-
 Easy FTP application
+
+## Features
+
+- Autofill information by you setting, save key-in FTP information time.
+- Friendly UI can customize the file list you wanna upload.
+- Auto Upload mode can let you set CRON job, and ftp.log will record your file upload status.
 
 ## Instructions
 For sigle .exe in dict:
