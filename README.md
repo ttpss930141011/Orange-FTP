@@ -7,6 +7,40 @@ Easy FTP application
 - Friendly UI can customize the file list you wanna upload.
 - Auto Upload mode can let you set CRON job, and ftp.log will record your file upload status.
 
+## Structure
+``` txt
+├─ views/                               // 靜態檔案
+│  ├─ components                        // 組件相關
+│  │  ├─ __init__.py                    // 說明
+│  │  ├─ topLeftRightFileListWidget.py  // 封裝檔案操作與fileListWidget.py的組件
+│  │  ├─ fileListWidget.py              //  author: yjg30737
+│  ├─ UI.py                             // 主要UI檔案
+├─ lib/                     // 使用到的library
+│  ├─ __init__.py           // 說明
+│  ├─ ftplib.py             // ftplib library
+├─ static/                  // view相關
+│  ├─ add.svg               // add button的svg
+│  ├─ delete.svg            // delete button的svg
+│  ├─ clear.svg             // clear button的svg
+│  ├─ favicon.ico           // program icon
+│  ├─ error_login.png       // Demo pic
+│  ├─ success_login.png     // Demo pic
+│  ├─ upload_success.png    // Demo pic
+├─ controller/              // Controller 相關
+│  ├─ mainController.py     // 主要controller 檔案
+├─ dist/                    // 打包相關
+│  ├─ file/                 // 打開OrangeFTP.exe後要上傳的檔案目錄
+│  ├─ OrangeFTP.exe         // 打包後程式本體
+│  ├─ ftp.log               // auto upload 會產生的log檔
+│  ├─ config.txt            // config.txt
+├─ file/                    // start.py 執行後要上傳的檔案目錄
+├─ .gitignore               
+├─ config.txt               // config.txt
+├─ start.py                 // 程式進入點
+├─ start.spec               // pyinstaller build spec
+├─ requirement.txt          // package requirement
+```
+
 ## Instructions
 For sigle .exe in dict:
 - Create ```config.txt``` in ```dict/```
