@@ -1,13 +1,13 @@
-# Orange FTP
+# 🍊Orange FTP
 Easy FTP application
-
-## Features
+Project on Github : [🍊Orange-FTP](https://github.com/ttpss930141011/Orange-FTP) 
+## 🍊Features
 
 - Autofill information by you setting, save key-in FTP information time.
 - Friendly UI can customize the file list you wanna upload.
 - Auto Upload mode can let you set CRON job, and ftp.log will record your file upload status.
 
-## Structure
+## 🍊Structure
 ``` txt
 ├─ controller/              // Controller 相關
 │  ├─ mainController.py     // 主要controller 檔案
@@ -43,7 +43,7 @@ Easy FTP application
 
 ```
 
-## Instructions
+## 🍊Instructions
 For sigle .exe in dict:
 - Create ```config.txt``` in ```dict/```
 ```sh 
@@ -75,12 +75,12 @@ Target_Filepath:.\\file # Default is file folder, or you can config your path li
 ```sh 
 python start.py
  ```
-## Build
+## 🍊Build
 ```sh
 pyinstaller start.spec
 ```
 
-## Included packages
+## 🍊Included packages
 - [pyQt5](https://www.riverbankcomputing.com/software/pyqt/) 
 PyQt is a set of Python bindings for The Qt Company's Qt application framework and runs on all platforms supported by Qt including Windows, macOS, Linux, iOS and Android. 
 - [pyqt-top-left-right-file-list-widget](https://github.com/yjg30737/pyqt-top-left-right-file-list-widget)
@@ -90,7 +90,7 @@ PyQt QListWidget for files (Being able to drop the files based on user-defined e
 - [pyftpdlib](https://github.com/giampaolo/pyftpdlib/)
 Python FTP server library provides a high-level portable interface to easily write very efficient, scalable and asynchronous FTP servers with Python.
 
-## Demo
+## 🍊Demo
 Success login in FTP :  
 ![alt text](static/success_login.png)
 
