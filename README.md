@@ -52,6 +52,9 @@ FTP_IP:xx.xxx.xxx.xx
 FTP_Path:/xxx/xxx
 FTP_Account:YOUR_ACCONUT
 FTP_Password:YOUR_PASSWORD
+Auto_Upload:no|yes
+Target_Filepath:.\\file # Default is file folder, or you can config your path like below
+# Target_Filepath:C:\Users\101557\Desktop\Work-Code\pyqt-ftp\file # copy absolate path on file explorer of target folder 
 ```
 - create ```dict/file``` folder and put your wanna upload file in
 - Excute ```OrangeFTP.exe```.
@@ -64,6 +67,8 @@ FTP_IP:xx.xxx.xxx.xx
 FTP_Path:/xxx/xxx
 FTP_Account:YOUR_ACCONUT
 FTP_Password:YOUR_PASSWORD
+Target_Filepath:.\\file # Default is file folder, or you can config your path like below
+# Target_Filepath:C:\Users\101557\Desktop\Work-Code\pyqt-ftp\file # copy absolate path on file explorer of target folder 
 ```
 - create ```file``` folder and put your wanna upload file in .
 - Excute.
