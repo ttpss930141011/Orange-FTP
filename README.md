@@ -9,7 +9,7 @@ Easy FTP application
 
 ## Structure
 ``` txt
-├─ views/                               // 靜態檔案
+├─ views/                               // view相關
 │  ├─ components                        // 組件相關
 │  │  ├─ __init__.py                    // 說明
 │  │  ├─ topLeftRightFileListWidget.py  // 封裝檔案操作與fileListWidget.py的組件
@@ -18,7 +18,7 @@ Easy FTP application
 ├─ lib/                     // 使用到的library
 │  ├─ __init__.py           // 說明
 │  ├─ ftplib.py             // ftplib library
-├─ static/                  // view相關
+├─ static/                  // 靜態檔案
 │  ├─ add.svg               // add button的svg
 │  ├─ delete.svg            // delete button的svg
 │  ├─ clear.svg             // clear button的svg
