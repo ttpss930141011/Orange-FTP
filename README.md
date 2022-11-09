@@ -35,7 +35,7 @@ Easy FTP application
 │  ├─ UI.py                             // 主要UI檔案
 ├─ file/                    // start.py 執行後要上傳的檔案目錄
 ├─ .gitignore               // .gitignore
-├─ README.md          		// README
+├─ README.md          	    // README
 ├─ requirement.txt          // package requirement
 ├─ config.txt               // config.txt
 ├─ start.py                 // 程式進入點
