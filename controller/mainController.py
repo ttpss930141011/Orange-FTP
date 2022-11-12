@@ -33,7 +33,8 @@ class Window(QMainWindow,Main_Window):
         if self.targetFilePath is not None:
             # 自動帶入file folder 內的檔案 
             for file in listdir(self.targetFilePath): 
-                if isfile(join(self.targetFilePath, file)):
+                _, file_extension = os.path.splitext(file)
+                if isfile(join(self.targetFilePath, file)) and file_extension != '.temp' and file_extension != '.tmp':
                     self.FileList.setFileName(join(self.targetFilePath, file))
 
     # initial lot mode，依據是否為auto upload 模式去選擇是否要生成ftp.log file
