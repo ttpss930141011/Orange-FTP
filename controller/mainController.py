@@ -110,6 +110,7 @@ class Window(QMainWindow,Main_Window):
         if file_extension != '.temp' and file_extension != '.tmp':
             return False
         else:
+            self.__appendTextInFtpMsgBrower(f'*error* \'{file} is a temp file\'')
             return True
 
     # exit   
