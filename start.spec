@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(
-    ['start.py'],
+    ['start.pyw'],
     pathex=[],
     binaries=[],
     datas=[('.\\static', 'static')],
