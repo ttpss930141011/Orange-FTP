@@ -1,5 +1,4 @@
 import os
-import string
 from PyQt5.QtWidgets import QMainWindow, QApplication,QMessageBox
 import re
 from os import listdir
@@ -33,8 +32,7 @@ class Window(QMainWindow,Main_Window):
         if self.targetFilePath is not None:
             # 自動帶入file folder 內的檔案 
             for file in listdir(self.targetFilePath): 
-                _, file_extension = os.path.splitext(file)
-                if isfile(join(self.targetFilePath, file)) and file_extension != '.temp' and file_extension != '.tmp':
+                if isfile(join(self.targetFilePath, file)) and not self.__isTempFile(file):
                     self.FileList.setFileName(join(self.targetFilePath, file))
 
     # initial lot mode，依據是否為auto upload 模式去選擇是否要生成ftp.log file
@@ -105,6 +103,14 @@ class Window(QMainWindow,Main_Window):
             self.StartToUpload()
             self.__onCancelAndExit()
             exit(0)
+
+    # 判斷是否為temp file     
+    def __isTempFile(self,file):
+        _, file_extension = os.path.splitext(file)
+        if file_extension != '.temp' and file_extension != '.tmp':
+            return False
+        else:
+            return True
 
     # exit   
     def __onCancelAndExit(self):
