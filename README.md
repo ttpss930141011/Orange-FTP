@@ -7,6 +7,7 @@ Project on Github : [🍊Orange-FTP](https://github.com/ttpss930141011/Orange-FT
 - Autofill information by you setting, save key-in FTP information time.
 - Friendly UI can customize the file list you wanna upload.
 - Auto Upload mode can let you set CRON job, and ftp.log will record your file upload status.
+- Automatically determine not to upload incomplete files like .tmp/.temp file.
 
 ## 🍊Structure
 ``` txt
@@ -34,12 +35,12 @@ Project on Github : [🍊Orange-FTP](https://github.com/ttpss930141011/Orange-FT
 │  │  ├─ topLeftRightFileListWidget.py  // 封裝檔案操作與fileListWidget.py的組件
 │  │  ├─ fileListWidget.py              //  author: yjg30737
 │  ├─ UI.py                             // 主要UI檔案
-├─ file/                    // start.py 執行後要上傳的檔案目錄
+├─ file/                    // start.pyw 執行後要上傳的檔案目錄
 ├─ .gitignore               // .gitignore
 ├─ README.md          	    // README
 ├─ requirement.txt          // package requirement
 ├─ config.txt               // config.txt
-├─ start.py                 // 程式進入點
+├─ start.pyw                 // 程式進入點
 ├─ start.spec               // pyinstaller build spec
 
 ```
@@ -60,7 +61,7 @@ Target_Filepath:.\\file # Default is file folder, or you can config your path li
 - create ```dict/file``` folder and put your wanna upload file in
 - Excute ```OrangeFTP.exe```.
 
-For source code in start.py:
+For source code in start.pyw:
 - Create ```config.txt```
 ```sh 
 #config.txt
@@ -74,7 +75,7 @@ Target_Filepath:.\\file # Default is file folder, or you can config your path li
 - create ```file``` folder and put your wanna upload file in .
 - Excute.
 ```sh 
-python start.py
+python start.pyw
  ```
 ## 🍊Build
 ```sh
